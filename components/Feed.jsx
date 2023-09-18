@@ -22,7 +22,7 @@ const Feed = () => {
             const response = await fetch("/api/prompt");
             const data = await response.json();
 
-            console.log(data);
+            console.log("All Prompts: ", data);
             setPosts(data);
         }
         fetchPosts();
