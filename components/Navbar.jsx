@@ -4,9 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 const Navbar = () => {
-
     const { data: session } = useSession();
-    console.log("Session: ", session);
     const [providers, setProviders] = useState(null);
     const [toggleDropDown, setToggleDropDown] = useState(false);
     useEffect(() => {
@@ -43,7 +41,7 @@ const Navbar = () => {
 
                         <Link href="/profile">
                             <Image
-                                src="/assets/images/logo.svg"
+                                src={session?.user.image}
                                 width={37}
                                 height={37}
                                 className="rounded-full"
@@ -72,7 +70,7 @@ const Navbar = () => {
                 {session?.user ? (
                     <div className="flex">
                         <Image
-                            src="/assets/images/logo.svg"
+                            src={session?.user.image}
                             width={37}
                             height={37}
                             className="rounded-full"
