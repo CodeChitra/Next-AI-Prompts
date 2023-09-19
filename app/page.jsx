@@ -6,7 +6,7 @@ const Home = () => {
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
         Promptly AI
-        <br className="max-md:hidden" />
+        <br />
         <span className="purple_gradient text-center">
           Your Portal to Infinite Creativity!
         </span>
