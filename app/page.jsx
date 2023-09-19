@@ -2,18 +2,17 @@ import Feed from "@components/Feed";
 
 const Home = () => {
 
-  console.log("Home Page");
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
-        Discover & Share
+        Promptly AI
         <br className="max-md:hidden" />
-        <span className="orange_gradient text-center">
-          AI-Powered Prompts
+        <span className="purple_gradient text-center">
+          Your Portal to Infinite Creativity!
         </span>
       </h1>
       <p className="desc text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur impedit nam laboriosam rerum deserunt esse ex fugiat corrupti expedita consectetur saepe id natus, assumenda, dolorem odio quae ipsam dolore quo.
+        Dive into a World of AI-Powered Creativity with Our Prompt Playground – Where Curiosity and Technology Collide!
       </p>
 
       <Feed />
