@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 const MyProfile = () => {
     const router = useRouter();
     const { data: session } = useSession();
+
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         const fetchPosts = async () => {
@@ -42,7 +43,7 @@ const MyProfile = () => {
     }
     return (
         <Profile
-            name="My"
+            name={session?.user.name}
             desc="Welcome to your personalized profile page"
             data={posts}
             handleEdit={handleEdit}

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+    const router = useRouter();
     const [copied, setCopied] = useState("");
     const { data: session } = useSession();
     const pathname = usePathname();
@@ -23,7 +24,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                         className='rounded-full object-contain'
                     />
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col" onClick={() => router.push(`/profile/${post.creator._id}`)}>
                         <h3 className='text-gray-900 font-satoshi font-bold'>{post.creator.username}</h3>
                         <p className='text-gray-500 font-satoshi'>{post.creator.email}</p>
                     </div>
@@ -31,6 +32,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                     <div className="copy_btn" onClick={handleCopy}>
                         <Image
                             src={copied === post.prompt ? "/assets/icons/tick.svg" : "/assets/icons/copy.svg"}
+                            alt='Copy Button'
                             width={20}
                             height={20}
                         />
